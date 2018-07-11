@@ -1,3 +1,6 @@
+# Credit
+This gem was forked from https://github.com/tubedude/xirr and uses the code from the open pull request here https://github.com/tubedude/xirr/pull/5 to remove the dependency on Ruby inline which needs to access the file system in order to work and won't play nicely with cloud 66 deployment.
+
 # Xirr
 [![Build Status](https://travis-ci.org/tubedude/xirr.svg)](https://travis-ci.org/tubedude/xirr)[![Coverage Status](https://coveralls.io/repos/tubedude/xirr/badge.svg?branch=master)](https://coveralls.io/r/tubedude/xirr?branch=master)[![Code Climate](https://codeclimate.com/github/tubedude/xirr/badges/gpa.svg)](https://codeclimate.com/github/tubedude/xirr)[![Dependency Status](https://gemnasium.com/tubedude/xirr.svg)](https://gemnasium.com/tubedude/xirr)
 
@@ -8,7 +11,7 @@ This is a gem to calculate XIRR on Bisection Method or Newton Method.
 
 Add this line to your application's Gemfile:
 
-    gem 'xirr'
+    gem 'xirr', git: 'git@github.com:InfuseGroup/xirr.git', branch: 'master'
 
 And then execute:
 
@@ -22,7 +25,7 @@ Or install it yourself as:
 
 
     include Xirr
-    
+
     cf = Cashflow.new
     cf << Transaction.new(-1000,  date: '2014-01-01'.to_date)
     cf << Transaction.new(-2000,  date: '2014-03-01'.to_date)
@@ -42,7 +45,7 @@ Or install it yourself as:
 ## Configuration
 
     # intializer/xirr.rb
-    
+
     Xirr.configure do |config|
       config.eps = '1.0e-12'
       config.days_in_year = 365.25
